@@ -37,5 +37,21 @@ export default {
 
   saveComment: (comment) => {
     return axios.post("api/db/save", comment);
-  }
-};
+  },
+
+  saveUser: (user) => {
+    return axios.post("api/db/users", user);
+  },
+
+  favoriteMovie: (user, movie) => {
+    return axios.post("api/db/favorites/" + user, movie)
+  },
+
+  deleteFavorite: (user, movie) => {
+    return axios.put("api/db/favorites/" + user, movie)
+  },
+
+  getFavorites: (user) => {
+    return axios.get("api/db/favorites/" + user)
+  },
+}
